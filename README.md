@@ -61,3 +61,34 @@ $ python manage.py sqlmigrate [Application name] [number]
 ```
 
 `[number]_initial.py`와 같이 `migration`이 되었음을 확인하였다면 `sqlmigrate` 명령을 통해 `sql`문을 확인할 수 있다.
+
+
+#### Use Python Shell in Django
+
+```
+$ python manage.py shell
+```
+
+#### Import Model
+
+```python
+from [Application name].models import [Class name]  # Import the model classes we just wrote
+from django.utils import [Library name]  # Django Util Library
+```
+
+
+#### Create Administrator Account
+
+```
+$ python manage.py createsuperuser
+```
+
+```
+Username (leave blank to use '[Local Name]'): [Admin name that you want to create]
+Email address : [Your email address]
+Password: [Your password]
+Password (again): [Your password again]
+Superuser created successfully.
+```
+
+`django.contrib.auth` 모듈에서 제공되는 `Django`에서 제공되는 인증 프레임워크이다.
