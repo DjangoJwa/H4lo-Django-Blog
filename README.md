@@ -123,3 +123,20 @@ def index(request):
     return render(request, '[Template Directory]', (parameter))
 
 ```
+
+#### Abort 404 Error
+
+```python
+
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from .models import Question
+
+...
+
+def func(request, param):
+    question = get_object_or_404((Django Model), (Keyword Parameter)))
+    return render(request, '[Template Directory]', {'Key': value})
+
+```
+
