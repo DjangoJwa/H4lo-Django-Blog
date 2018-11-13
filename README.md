@@ -92,3 +92,24 @@ Superuser created successfully.
 ```
 
 `django.contrib.auth` 모듈에서 제공되는 `Django`에서 제공되는 인증 프레임워크이다.
+
+#### Django Template System
+
+```python
+
+from django.template import loader
+from django.http import HttpResponse
+
+def index(request):
+    ...
+    template = loader.get_template('[Template Directory]')
+    return HttpResponse(template.render((parameter), request))
+
+* Directory
+
+(Application Name)/
+    template/
+        (Custom - Application Name)/
+            index.html
+            ...
+```
