@@ -113,3 +113,13 @@ def index(request):
             index.html
             ...
 ```
+
+```python
+
+# Different Way - Using render()
+
+def index(request):
+    ...
+    return render(request, '[Template Directory]', (parameter))
+
+```
