@@ -140,3 +140,35 @@ def func(request, param):
 
 ```
 
+#### URL namespace
+
+`Project` 내에는 수많은 `Application` 이 존재할 수 있기 때문에 하드 코딩하였을 경우에 어떤 `Application`의 `View`에서 URL을 생성하는 지에 대해 알고자 `URLconf`에 `namespace`를 추가한다.
+
+```python
+# [Application Name]/urls.py
+
+from django.urls import path
+from . import views
+
+app_name = '[Application Name]'
+urlpatterns = [
+    path('', views.index, name='index'),
+    path(...),
+    ...,
+]
+```
+
+```html
+<!-- [Application Name]/templates/[Application Name]/index.html -->
+<!-- 하드코딩했던 부분을 수정해보자! -->
+
+<li><a href="{% url '[Path - Views Name]' (Parameter) %}">{{ (Data Binding) }}</a></li>
+
+위의 코드는 하드코딩된 코드
+
+---
+
+<li><a href="{% '[Application Name]:[Path - Views Name]' (Parameter) %}">{{ (Data Binding) }}</a></li>
+
+다음과 같이 `Path` 명 앞에 `Application Name` + `:` 을 덧붙여 `namespace`를 이용하자.
+```

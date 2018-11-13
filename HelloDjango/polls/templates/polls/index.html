@@ -12,7 +12,7 @@
         {% for question in latest_question_list %}
             {% comment %} <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> {% endcomment %}
             {% comment %} This hard coding URL is very bad example..  {% endcomment %}
-            <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
